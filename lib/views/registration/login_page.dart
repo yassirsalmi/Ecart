@@ -6,8 +6,8 @@ import '../../controllers/login_controller.dart';
 
 class LoginPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final _emailTextController = TextEditingController();
+  final _passwordTextController = TextEditingController();
   final PasswordController _passwordController = Get.put(PasswordController());
 
   LoginPage({super.key});
@@ -63,14 +63,14 @@ class LoginPage extends StatelessWidget {
               children: [
                 textField(
                   'Enter your email',
-                  emailController,
+                  _emailTextController,
                 ),
                 const SizedBox(
                   height: 12,
                 ),
                 passwordField(
                   'Enter your password',
-                  passwordController,
+                  _passwordTextController,
                   _passwordController,
                 ),
                 const SizedBox(
@@ -107,6 +107,9 @@ class LoginPage extends StatelessWidget {
                     // sign up Text
                     // gesture detecture
                     GestureDetector(
+                      onTap: () {
+                        Get.toNamed('/signUp');
+                      },
                       child: Text(
                         'Sign Up',
                         style: TextStyle(
