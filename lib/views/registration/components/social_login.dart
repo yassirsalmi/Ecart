@@ -9,7 +9,7 @@ Widget socialLogin() {
           children: [
             CircleAvatar(
               backgroundColor: Colors.white,
-              backgroundImage: AssetImage('assets/ecart_logo.png'),
+              backgroundImage: AssetImage('assets/facebook_logo.png'),
               // radius: 80,
             ),
             Text('Facebook'),

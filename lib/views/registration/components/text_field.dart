@@ -30,18 +30,25 @@ Widget passwordField(
       () => TextFormField(
         controller: controller,
         obscureText: passwordController.passwordVisibility.value,
+        onChanged: (text) {
+          passwordController.updateIconButtonVisibility(text.isNotEmpty);
+        },
         decoration: InputDecoration(
-          border: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(12.0)),
-          ),
-          labelText: label,
-          suffixIcon: IconButton(
-            onPressed: passwordController.toggleVisibility,
-            icon: Icon(passwordController.passwordVisibility.value
-                ? Icons.visibility
-                : Icons.visibility_off),
-          ),
-        ),
+            border: const OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(12.0)),
+            ),
+            labelText: label,
+            suffixIcon: Obx(
+              () => Visibility(
+                visible: passwordController.showIconButton.value,
+                child: IconButton(
+                  onPressed: passwordController.toggleVisibility,
+                  icon: Icon(passwordController.passwordVisibility.value
+                      ? Icons.visibility
+                      : Icons.visibility_off),
+                ),
+              ),
+            )),
       ),
     ),
   );
