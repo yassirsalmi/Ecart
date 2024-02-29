@@ -2,7 +2,8 @@ import 'package:ecart/views/registration/components/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../controllers/login_controller.dart';
+import '../../controllers/authentification/login_controller.dart';
+import 'components/social_login.dart';
 
 class LoginPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -43,16 +44,17 @@ class LoginPage extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),
           const Text(
             'Sign In To Continue',
             style: TextStyle(
-                color: Color(0xFF95CD2C),
-                fontSize: 20,
-                fontWeight: FontWeight.bold),
+              color: Color(0xFF95CD2C),
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(
             height: 30,
@@ -119,6 +121,10 @@ class LoginPage extends StatelessWidget {
                     ),
                   ],
                 ),
+                const SizedBox(
+                  height: 50,
+                ),
+                socialLogin(),
               ],
             ),
           ),

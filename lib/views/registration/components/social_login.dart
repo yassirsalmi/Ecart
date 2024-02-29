@@ -1,8 +1,33 @@
 import 'package:flutter/material.dart';
 
 Widget socialLogin() {
-  return const Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [],
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceAround,
+    children: [
+      GestureDetector(
+        child: const Column(
+          children: [
+            CircleAvatar(
+              backgroundColor: Colors.white,
+              backgroundImage: AssetImage('assets/ecart_logo.png'),
+              // radius: 80,
+            ),
+            Text('Facebook'),
+          ],
+        ),
+      ),
+      GestureDetector(
+        child: const Column(
+          children: [
+            CircleAvatar(
+              backgroundColor: Colors.white,
+              backgroundImage: AssetImage('assets/google_logo.png'),
+              // radius: 80,
+            ),
+            Text('Google'),
+          ],
+        ),
+      ),
+    ],
   );
 }
