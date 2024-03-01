@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       ),
       getPages: [
         GetPage(name: '/login', page: () => LoginPage()),
-        GetPage(name: '/signUp', page: () => const SignUpPage()),
+        GetPage(name: '/signUp', page: () => SignUpPage()),
         // GetPage(name: '/landing', page: () => const LandingPage()),
       ],
       // to use getx for navigation we change home to initialRoute
