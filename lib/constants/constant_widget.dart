@@ -6,6 +6,12 @@ Widget spaceBetweenFields() {
   );
 }
 
+Widget smallSpace() {
+  return const SizedBox(
+    height: 8,
+  );
+}
+
 Widget meduimSpace() {
   return const SizedBox(
     height: 20,
