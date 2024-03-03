@@ -12,12 +12,25 @@ Widget productDetail() {
     ),
     child: Column(
       children: [
-        const Positioned(top: 0, child: Text('Modern Men S Watch')),
+        const Text('Modern Men S Watch'),
         smallSpace(),
         const Row(
           children: [
-            // Image(image: AssetImage('assets/watch_1_men.webp')),
-            Text('des'),
+            SizedBox(
+              width: 180,
+              height: 100,
+              child: Image(image: AssetImage('assets/watch_1_men-1.png')),
+            ),
+            Flexible(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                child: Text(
+                  'A gentleman’s choice of timepiece says as much...',
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ),
           ],
         ),
       ],

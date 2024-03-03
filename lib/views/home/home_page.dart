@@ -49,8 +49,10 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 smallSpace(),
+                // the discount component the t will be modified or hiden
                 discountComponent(),
                 smallSpace(),
+                // scrollable row to filter products
                 Row(
                   children: [
                     GestureDetector(
@@ -62,6 +64,7 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
                 smallSpace(),
+                // this is the component to display product at the home page
                 productDetail(),
               ],
             ),
