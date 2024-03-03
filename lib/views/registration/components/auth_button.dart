@@ -1,11 +1,15 @@
+import 'package:ecart/views/home/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 Widget authButton(
   String button,
 ) {
   return GestureDetector(
     // login, sign up bottun
-    onTap: () {},
+    onTap: () {
+      Get.to(() => const HomePage());
+    },
     child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 26),
       child: Container(
