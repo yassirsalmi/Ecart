@@ -56,15 +56,17 @@ class HomePage extends StatelessWidget {
                 Row(
                   children: [
                     GestureDetector(
-                      child: Container(
-                        child: const Row(
-                            children: [Icon(Icons.watch), Text('Accessories')]),
-                      ),
+                      child: const Row(
+                          children: [Icon(Icons.watch), Text('Accessories')]),
                     ),
                   ],
                 ),
                 smallSpace(),
                 // this is the component to display product at the home page
+                smallSpace(),
+                productDetail(),
+                // this is the component to display product at the home page
+                smallSpace(),
                 productDetail(),
               ],
             ),

@@ -2,7 +2,6 @@ import 'package:ecart/constants/constant_widget.dart';
 import 'package:ecart/views/registration/components/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../controllers/authentification/login_controller.dart';
 import 'components/auth_button.dart';
 import 'components/social_login.dart';
@@ -76,27 +75,6 @@ class LoginPage extends StatelessWidget {
                   _passwordController,
                 ),
                 spaceBetweenFields(),
-                // GestureDetector(
-                //   // login bottun
-                //   onTap: () {},
-                //   child: Padding(
-                //     padding: const EdgeInsets.symmetric(horizontal: 26),
-                //     child: Container(
-                //       height: 50,
-                //       width: 260,
-                //       decoration: const BoxDecoration(
-                //         color: Color(0xFF95CD2C),
-                //         borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                //       ),
-                //       child: const Center(
-                //         child: Text(
-                //           'Sign In',
-                //           style: TextStyle(color: Colors.white, fontSize: 18),
-                //         ),
-                //       ),
-                //     ),
-                //   ),
-                // ),
                 authButton('Login'),
                 meduimSpace(),
                 Row(
