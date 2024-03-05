@@ -1,12 +1,16 @@
+import 'package:ecart/constants/colors.dart';
+import 'package:ecart/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'views/registration/login_page.dart';
 import 'views/registration/sign_up.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.android,
+  );
   runApp(const MyApp());
 }
 
@@ -16,9 +20,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      // debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF95CD2C)),
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColor.mainColor),
         useMaterial3: true,
       ),
       getPages: [
@@ -27,7 +31,6 @@ class MyApp extends StatelessWidget {
         // GetPage(name: '/landing', page: () => const LandingPage()),
       ],
       // to use getx for navigation we change home to initialRoute
-      // home: LoginPage(),
       initialRoute: '/login',
     );
   }
