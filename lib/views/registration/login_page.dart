@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../../controllers/authentification/login_controller.dart';
 import 'components/auth_button.dart';
 import 'components/social_login.dart';
+import '../../constants/texts.dart' as txt;
 
 class LoginPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -20,25 +21,25 @@ class LoginPage extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 30),
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 30),
             child: Stack(
               children: [
                 Align(
                   alignment: AlignmentDirectional.topStart,
-                  child: Container(
+                  child: SizedBox(
                     width: 300,
                     height: 300,
-                    child: const Image(
-                      image: AssetImage('assets/ecart_logo.png'),
+                    child: Image(
+                      image: AssetImage(txt.logoPath),
                     ),
                   ),
                 ),
-                const Positioned(
+                Positioned(
                   right: 80,
                   top: 230,
                   child: Text(
-                    'Ecart',
+                    txt.appName,
                     style: TextStyle(
                       color: Color(0xFF95CD2C),
                       fontSize: 42,
@@ -50,7 +51,7 @@ class LoginPage extends StatelessWidget {
             ),
           ),
           const Text(
-            'Sign In To Continue',
+            txt.signInText,
             style: TextStyle(
               color: Color(0xFF95CD2C),
               fontSize: 20,
@@ -65,12 +66,12 @@ class LoginPage extends StatelessWidget {
             child: Column(
               children: [
                 textField(
-                  'Enter your email',
+                  txt.emailText,
                   _emailTextController,
                 ),
                 spaceBetweenFields(),
                 passwordField(
-                  'Enter your password',
+                  txt.passwordText,
                   _passwordTextController,
                   _passwordController,
                 ),
@@ -80,7 +81,7 @@ class LoginPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Don\'t have an account?'),
+                    const Text(txt.createAccountText),
                     // sign up Text
                     // gesture detecture
                     GestureDetector(

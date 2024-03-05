@@ -2,6 +2,7 @@ import 'package:ecart/constants/constant_widget.dart';
 import 'package:ecart/views/home/components/discount.dart';
 import 'package:ecart/views/home/components/product_details.dart';
 import 'package:flutter/material.dart';
+import '../../constants/texts.dart' as txt;
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -27,21 +28,22 @@ class HomePage extends StatelessWidget {
                           size: 36,
                         )),
                     const Text(
-                      'Ecart',
+                      txt.appName,
                       style: TextStyle(color: Color(0xFF95CD2C), fontSize: 32),
                     ),
                     IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          //the icon need to change
-                          Icons.shopping_bag_outlined,
-                          color: Color(0xFF95CD2C),
-                          size: 36,
-                        ))
+                      onPressed: () {},
+                      icon: const Icon(
+                        //the icon need to change
+                        Icons.shopping_bag_outlined,
+                        color: Color(0xFF95CD2C),
+                        size: 36,
+                      ),
+                    ),
                   ],
                 ),
                 const Text(
-                  'Your Style Is What We Care Most About',
+                  txt.landingText,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
