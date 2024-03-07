@@ -37,16 +37,16 @@ Widget textField(
 Widget passwordField(
   String? label,
   TextEditingController controller,
-  PasswordController passwordController,
+  LoginController loginController,
 ) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 26),
     child: Obx(
       () => TextFormField(
         controller: controller,
-        obscureText: passwordController.passwordVisibility.value,
+        obscureText: loginController.passwordVisibility.value,
         onChanged: (text) {
-          passwordController.updateIconButtonVisibility(text.isNotEmpty);
+          loginController.updateIconButtonVisibility(text.isNotEmpty);
         },
         decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
@@ -68,10 +68,10 @@ Widget passwordField(
             labelText: label,
             suffixIcon: Obx(
               () => Visibility(
-                visible: passwordController.showIconButton.value,
+                visible: loginController.showIconButton.value,
                 child: IconButton(
-                  onPressed: passwordController.toggleVisibility,
-                  icon: Icon(passwordController.passwordVisibility.value
+                  onPressed: loginController.toggleVisibility,
+                  icon: Icon(loginController.passwordVisibility.value
                       ? Icons.visibility
                       : Icons.visibility_off),
                 ),

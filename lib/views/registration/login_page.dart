@@ -1,19 +1,12 @@
 import 'package:ecart/constants/constant_widget.dart';
-import 'package:ecart/views/registration/components/text_field.dart';
+import 'package:ecart/views/registration/components/login_form.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../controllers/authentification/login_controller.dart';
-import 'components/auth_button.dart';
 import 'components/social_login.dart';
 import '../../constants/texts.dart' as txt;
 
 class LoginPage extends StatelessWidget {
-  final _formKey = GlobalKey<FormState>();
-  final _emailTextController = TextEditingController();
-  final _passwordTextController = TextEditingController();
-  final PasswordController _passwordController = Get.put(PasswordController());
-
-  LoginPage({super.key});
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -61,49 +54,31 @@ class LoginPage extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          Form(
-            key: _formKey,
-            child: Column(
-              children: [
-                textField(
-                  txt.emailText,
-                  _emailTextController,
+          LoginForm(),
+          meduimSpace(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(txt.createAccountText),
+              // sign up Text
+              // gesture detecture
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed('/signUp');
+                },
+                child: Text(
+                  'Sign Up',
+                  style: TextStyle(
+                    color: Colors.blue[300],
+                  ),
                 ),
-                spaceBetweenFields(),
-                passwordField(
-                  txt.passwordText,
-                  _passwordTextController,
-                  _passwordController,
-                ),
-                spaceBetweenFields(),
-                authButton('Login'),
-                meduimSpace(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(txt.createAccountText),
-                    // sign up Text
-                    // gesture detecture
-                    GestureDetector(
-                      onTap: () {
-                        Get.toNamed('/signUp');
-                      },
-                      child: Text(
-                        'Sign Up',
-                        style: TextStyle(
-                          color: Colors.blue[300],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-                socialLogin(),
-              ],
-            ),
+              ),
+            ],
           ),
+          const SizedBox(
+            height: 50,
+          ),
+          socialLogin(),
         ],
       ),
     );

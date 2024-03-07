@@ -1,17 +1,12 @@
+import 'package:ecart/constants/colors.dart';
 import 'package:ecart/constants/constant_widget.dart';
+import 'package:ecart/views/registration/components/signup_form.dart';
 import 'package:ecart/views/registration/components/social_login.dart';
-import 'package:ecart/views/registration/components/text_field.dart';
 import 'package:flutter/material.dart';
 import '../../constants/texts.dart' as txt;
 
-import 'components/auth_button.dart';
-
 class SignUpPage extends StatelessWidget {
-  SignUpPage({super.key});
-
-  final _nameController = TextEditingController();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
+  const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +34,7 @@ class SignUpPage extends StatelessWidget {
                   child: Text(
                     txt.appName,
                     style: TextStyle(
-                      color: Color(0xFF95CD2C),
+                      color: AppColor.mainColor,
                       fontSize: 38,
                       fontWeight: FontWeight.bold,
                     ),
@@ -51,7 +46,7 @@ class SignUpPage extends StatelessWidget {
           const Text(
             txt.signUpText,
             style: TextStyle(
-              color: Color(0xFF95CD2C),
+              color: AppColor.mainColor,
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
@@ -61,22 +56,7 @@ class SignUpPage extends StatelessWidget {
             radius: 56,
           ),
           meduimSpace(),
-          textField(
-            txt.nameText,
-            _nameController,
-          ),
-          spaceBetweenFields(),
-          textField(
-            txt.emailText,
-            _emailController,
-          ),
-          spaceBetweenFields(),
-          textField(
-            txt.passwordText,
-            _passwordController,
-          ),
-          bigSpace(),
-          authButton('Sign Up'),
+          SignUpForm(),
           bigSpace(),
           socialLogin(),
         ],
