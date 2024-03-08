@@ -4,8 +4,8 @@ class MainPageController extends GetxController {
   final RxInt _selectedIndex = RxInt(0);
 
   void onItemTapped(int index) {
+    // print('Item tapped: $index');
     _selectedIndex.value = index;
-    // Consider additional navigation logic or data fetching if needed
   }
 
   int get selectedIndex => _selectedIndex.value;

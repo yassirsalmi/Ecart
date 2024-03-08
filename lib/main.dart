@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
           name: '/',
           page: () {
             return FirebaseAuth.instance.currentUser != null
-                ? const HomePage()
+                ? MainPage()
                 : const LoginPage();
           },
         ),
