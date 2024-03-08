@@ -15,7 +15,7 @@ Widget authButton(
     // login, sign up bottun
     onTap: () {
       loginController.signIn(email.text, password.text);
-      Get.to(() => const MainPage());
+      Get.to(() => MainPage());
     },
     child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 26),
@@ -52,7 +52,7 @@ Widget signUpButton(
     // login, sign up bottun
     onTap: () {
       signUpController.signUp(email.text, password.text);
-      Get.to(() => const MainPage());
+      Get.to(() => MainPage());
     },
     child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 26),

@@ -1,8 +1,8 @@
 import 'package:ecart/constants/colors.dart';
 import 'package:ecart/firebase_options.dart';
-import 'package:ecart/landing_page.dart';
 import 'package:ecart/views/main_page.dart';
 import 'package:ecart/views/profile/profile_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,14 +30,21 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       getPages: [
-        GetPage(name: '/landing_page', page: () => const LandingPage()),
+        GetPage(
+          name: '/',
+          page: () {
+            return FirebaseAuth.instance.currentUser != null
+                ? const HomePage()
+                : const LoginPage();
+          },
+        ),
         GetPage(name: '/login', page: () => const LoginPage()),
         GetPage(name: '/signUp', page: () => const SignUpPage()),
         GetPage(name: '/home', page: () => const HomePage()),
         GetPage(name: '/profile', page: () => const ProfilePage()),
-        GetPage(name: '/main', page: () => const MainPage()),
+        GetPage(name: '/main', page: () => MainPage()),
       ],
-      initialRoute: '/landing_page',
+      initialRoute: '/',
     );
   }
 }
