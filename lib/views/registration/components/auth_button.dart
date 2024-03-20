@@ -1,9 +1,7 @@
 import 'package:ecart/constants/colors.dart';
 import 'package:ecart/controllers/authentification/login_controller.dart';
 import 'package:ecart/controllers/authentification/sign_up_controller.dart';
-import 'package:ecart/views/main_page.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 Widget authButton(
   String button,
@@ -12,10 +10,8 @@ Widget authButton(
   TextEditingController password,
 ) {
   return GestureDetector(
-    // login, sign up bottun
     onTap: () {
       loginController.signIn(email.text, password.text);
-      Get.to(() => MainPage());
     },
     child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 26),
@@ -49,10 +45,8 @@ Widget signUpButton(
   TextEditingController password,
 ) {
   return GestureDetector(
-    // login, sign up bottun
     onTap: () {
       signUpController.signUp(email.text, password.text);
-      Get.to(() => MainPage());
     },
     child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 26),

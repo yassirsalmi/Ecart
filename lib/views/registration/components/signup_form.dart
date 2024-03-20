@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../constants/constant_widget.dart';
 import '../../../constants/texts.dart' as txt;
-// import '../../../controllers/authentification/login_controller.dart';
 import 'text_field.dart';
 
 class SignUpForm extends StatelessWidget {
@@ -36,8 +35,12 @@ class SignUpForm extends StatelessWidget {
             _passwordTextController,
           ),
           bigSpace(),
-          signUpButton('Sign Up', _signupController, _emailTextController,
-              _passwordTextController),
+          signUpButton(
+            'Sign Up',
+            _signupController,
+            _emailTextController,
+            _passwordTextController,
+          ),
           spaceBetweenFields(),
         ],
       ),

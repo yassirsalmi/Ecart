@@ -9,10 +9,9 @@ Widget socialLogin() {
           children: [
             CircleAvatar(
               backgroundColor: Colors.white,
-              backgroundImage: AssetImage('assets/facebook_logo.png'),
-              // radius: 80,
+              backgroundImage: AssetImage('assets/google_logo.png'),
             ),
-            Text('Facebook'),
+            Text('Google'),
           ],
         ),
       ),
@@ -21,10 +20,9 @@ Widget socialLogin() {
           children: [
             CircleAvatar(
               backgroundColor: Colors.white,
-              backgroundImage: AssetImage('assets/google_logo.png'),
-              // radius: 80,
+              backgroundImage: AssetImage('assets/facebook_logo.png'),
             ),
-            Text('Google'),
+            Text('Facebook'),
           ],
         ),
       ),
