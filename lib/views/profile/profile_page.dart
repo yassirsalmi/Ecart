@@ -10,7 +10,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile'),
+        title: const Text('Profile'),
       ),
       body: Center(
         child: GetX<ProfileController>(
@@ -24,17 +24,14 @@ class ProfilePage extends StatelessWidget {
                 children: [
                   Text('Display Name: ${user!.displayName ?? "N/A"}'),
                   Text('Email: ${user.email ?? "N/A"}'),
-                  // Add more user details as needed
                   ElevatedButton(
-                    onPressed: () =>
-                        controller.signOut(), // Call signOut method
-                    child: Text('Log Out'),
+                    onPressed: () => controller.signOut(),
+                    child: const Text('Log Out'),
                   ),
                 ],
               );
             } else {
-              // User is not logged in
-              return Text('User not logged in');
+              return const Text('User not logged in');
             }
           },
         ),

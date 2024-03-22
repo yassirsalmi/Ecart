@@ -1,4 +1,5 @@
 import 'package:ecart/constants/constant_widget.dart';
+import 'package:ecart/controllers/authentification/sign_up_controller.dart';
 import 'package:ecart/views/registration/components/login_form.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,7 +7,8 @@ import 'components/social_login.dart';
 import '../../constants/texts.dart' as txt;
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  LoginPage({super.key});
+  final SignUpController _signUpController = Get.put(SignUpController());
 
   @override
   Widget build(BuildContext context) {
@@ -60,8 +62,6 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(txt.createAccountText),
-              // sign up Text
-              // gesture detecture
               GestureDetector(
                 onTap: () {
                   Get.toNamed('/signUp');
@@ -78,7 +78,7 @@ class LoginPage extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
-          socialLogin(),
+          socialLogin(_signUpController),
         ],
       ),
     );

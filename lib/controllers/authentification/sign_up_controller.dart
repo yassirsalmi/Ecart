@@ -2,10 +2,12 @@ import 'package:ecart/constants/firebase_constant.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class SignUpController extends GetxController {
   var passwordVisibility = true.obs;
   var showIconButton = false.obs;
+  final GoogleSignIn googleSignIn = GoogleSignIn();
 
   void toggleVisibility() {
     passwordVisibility.value = !passwordVisibility.value;
@@ -17,6 +19,7 @@ class SignUpController extends GetxController {
 
   Future signUp(String email, String password) async {
     try {
+      // ignore: unused_local_variable
       final credential = await auth.createUserWithEmailAndPassword(
         email: email.trim(),
         password: password.trim(),
@@ -48,6 +51,30 @@ class SignUpController extends GetxController {
           duration: Duration(seconds: 3),
         ),
       );
+    }
+  }
+
+  // this is the part to work on the google sign in
+  Future<void> signUpWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleSignInAccount =
+          await googleSignIn.signIn();
+      final GoogleSignInAuthentication googleSignInAuthentication =
+          await googleSignInAccount!.authentication;
+
+      final AuthCredential credential = GoogleAuthProvider.credential(
+        accessToken: googleSignInAuthentication.accessToken,
+        idToken: googleSignInAuthentication.idToken,
+      );
+
+      final UserCredential userCredential =
+          await FirebaseAuth.instance.signInWithCredential(credential);
+      // ignore: unused_local_variable
+      final User? user = userCredential.user;
+
+      // Use the user object for further operations or navigate to a new screen.
+    } catch (e) {
+      print(e.toString());
     }
   }
 }

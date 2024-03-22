@@ -35,11 +35,11 @@ class MyApp extends StatelessWidget {
           page: () {
             return FirebaseAuth.instance.currentUser != null
                 ? MainPage()
-                : const LoginPage();
+                : LoginPage();
           },
         ),
-        GetPage(name: '/login', page: () => const LoginPage()),
-        GetPage(name: '/signUp', page: () => const SignUpPage()),
+        GetPage(name: '/login', page: () => LoginPage()),
+        GetPage(name: '/signUp', page: () => SignUpPage()),
         GetPage(name: '/home', page: () => const HomePage()),
         GetPage(name: '/profile', page: () => const ProfilePage()),
         GetPage(name: '/main', page: () => MainPage()),

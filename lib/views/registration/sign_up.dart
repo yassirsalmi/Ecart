@@ -1,12 +1,15 @@
 import 'package:ecart/constants/colors.dart';
 import 'package:ecart/constants/constant_widget.dart';
+import 'package:ecart/controllers/authentification/sign_up_controller.dart';
 import 'package:ecart/views/registration/components/signup_form.dart';
 import 'package:ecart/views/registration/components/social_login.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../constants/texts.dart' as txt;
 
 class SignUpPage extends StatelessWidget {
-  const SignUpPage({super.key});
+  SignUpPage({super.key});
+  final SignUpController _signUpController = Get.put(SignUpController());
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +61,7 @@ class SignUpPage extends StatelessWidget {
           meduimSpace(),
           SignUpForm(),
           bigSpace(),
-          socialLogin(),
+          socialLogin(_signUpController),
         ],
       ),
     );
