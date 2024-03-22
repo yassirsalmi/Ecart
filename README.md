@@ -8,6 +8,10 @@ Ecart is a cutting-edge e-commerce application built with Flutter, leveraging th
  - Secure Authentication: Utilizing Firebase Authentication, Ecart ensures that user data is kept secure through robust authentication mechanisms.
 
 ## Design:
-![login_page](https://github.com/yassirsalmi/Ecart/assets/141523466/9b3c613d-dde0-46f4-9f37-c560a5dc24d2)
+
+<div style="text-align:center">
+ <img src="https://github.com/yassirsalmi/Ecart/assets/141523466/9b3c613d-dde0-46f4-9f37-c560a5dc24d2" alt="login_page" width="250">
+</div>
+
 
 
