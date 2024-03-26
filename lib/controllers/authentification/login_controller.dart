@@ -49,20 +49,24 @@ class LoginController extends GetxController {
     try {
       final GoogleSignInAccount? googleSignInAccount =
           await googleSignIn.signIn();
-      final GoogleSignInAuthentication googleSignInAuthentication =
-          await googleSignInAccount!.authentication;
+      if (googleSignInAccount != null) {
+        final GoogleSignInAuthentication googleSignInAuthentication =
+            await googleSignInAccount.authentication;
 
-      final AuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleSignInAuthentication.accessToken,
-        idToken: googleSignInAuthentication.idToken,
-      );
+        final AuthCredential credential = GoogleAuthProvider.credential(
+          accessToken: googleSignInAuthentication.accessToken,
+          idToken: googleSignInAuthentication.idToken,
+        );
 
-      final UserCredential userCredential =
-          await FirebaseAuth.instance.signInWithCredential(credential);
-      final User? user = userCredential.user;
+        final UserCredential userCredential =
+            await FirebaseAuth.instance.signInWithCredential(credential);
+        final User? user = userCredential.user;
 
-      if (user != null) {
-        Get.offAllNamed('/home');
+        if (user != null) {
+          Get.offAllNamed('/');
+        }
+      } else {
+        print("Google Sign In cancelled");
       }
     } catch (e) {
       print(e.toString());

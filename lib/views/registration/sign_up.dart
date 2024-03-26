@@ -60,6 +60,23 @@ class SignUpPage extends StatelessWidget {
           ),
           meduimSpace(),
           SignUpForm(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(txt.haveAnAccount),
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed('/login');
+                },
+                child: Text(
+                  'Sign In',
+                  style: TextStyle(
+                    color: Colors.blue[300],
+                  ),
+                ),
+              ),
+            ],
+          ),
           bigSpace(),
           socialLogin(_signUpController),
         ],

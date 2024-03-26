@@ -1,5 +1,5 @@
 import 'package:ecart/constants/constant_widget.dart';
-import 'package:ecart/controllers/authentification/sign_up_controller.dart';
+import 'package:ecart/controllers/authentification/login_controller.dart';
 import 'package:ecart/views/registration/components/login_form.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,7 +8,7 @@ import '../../constants/texts.dart' as txt;
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
-  final SignUpController _signUpController = Get.put(SignUpController());
+  final LoginController _signInController = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +78,7 @@ class LoginPage extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
-          socialLogin(_signUpController),
+          socialLogin(_signInController),
         ],
       ),
     );
