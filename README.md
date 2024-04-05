@@ -1,6 +1,6 @@
 # Ecart - Your Ultimate E-commerce Solution
 
-Ecart is a cutting-edge e-commerce application built with Flutter, leveraging the power of GetX for state management and Firebase for backend support. With Ecart, users can enjoy a seamless shopping experience right from their mobile devices.
+Ecart is a e-commerce application built with Flutter, leveraging the power of GetX for state management and Firebase for backend support. With Ecart, users can enjoy a seamless shopping experience right from their mobile devices.
 
 ## Features:
  - Intuitive User Interface: Ecart boasts a sleek and user-friendly interface, ensuring a delightful shopping experience for customers of all ages.
