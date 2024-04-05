@@ -1,13 +1,37 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecart/constants/firebase_constant.dart';
+import 'package:ecart/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class SignUpController extends GetxController {
+  // controllers
+  late TextEditingController fullNameController;
+  late TextEditingController emailController;
+  late TextEditingController passwordController;
+  // handling the state
   var passwordVisibility = true.obs;
   var showIconButton = false.obs;
+  // google sign up
   final GoogleSignIn googleSignIn = GoogleSignIn();
+
+  @override
+  void onInit() {
+    super.onInit();
+    fullNameController = TextEditingController();
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+  }
+
+  @override
+  void onClose() {
+    fullNameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    super.onClose();
+  }
 
   void toggleVisibility() {
     passwordVisibility.value = !passwordVisibility.value;
@@ -17,13 +41,22 @@ class SignUpController extends GetxController {
     showIconButton.value = hasContent;
   }
 
-  Future signUp(String email, String password) async {
+  Future signUp(String fullName, String email, String password) async {
     try {
-      // ignore: unused_local_variable
       final credential = await auth.createUserWithEmailAndPassword(
         email: email.trim(),
         password: password.trim(),
       );
+
+      UserModel user = UserModel(
+        fullName: fullName,
+        email: email,
+        password: password,
+        role: 'user',
+        uuid: credential.user!.uid,
+      );
+      await saveUser(user);
+
       Get.offAllNamed('/login');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -54,7 +87,26 @@ class SignUpController extends GetxController {
     }
   }
 
-  // this is the part to work on the google sign in
+  Future<void> saveUser(UserModel user) async {
+    try {
+      // Get a reference to the Firestore collection
+      CollectionReference users =
+          FirebaseFirestore.instance.collection('users');
+
+      // Convert user object to JSON
+      Map<String, dynamic> userData = user.toJson();
+
+      // Add user data to Firestore with a document ID of user's UUID
+      await users.doc(user.uuid).set(userData);
+
+      print('User saved to database successfully');
+    } catch (e) {
+      print('Error saving user to database: $e');
+      throw e;
+    }
+  }
+
+  // this is the part to work on the google sign up
   Future<void> signUpWithGoogle() async {
     try {
       final GoogleSignInAccount? googleSignInAccount =
@@ -71,6 +123,10 @@ class SignUpController extends GetxController {
           await FirebaseAuth.instance.signInWithCredential(credential);
       // ignore: unused_local_variable
       final User? user = userCredential.user;
+
+      if (user != null) {
+        Get.offAllNamed('/');
+      }
 
       // Use the user object for further operations or navigate to a new screen.
     } catch (e) {

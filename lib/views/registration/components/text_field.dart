@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controllers/authentification/login_controller.dart';
-
 Widget textField(
   String? label,
   TextEditingController controller,
@@ -35,9 +33,9 @@ Widget textField(
 }
 
 Widget passwordField(
-  String? label,
-  TextEditingController controller,
-  LoginController loginController,
+  final String? label,
+  final TextEditingController controller,
+  final dynamic loginController,
 ) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 26),

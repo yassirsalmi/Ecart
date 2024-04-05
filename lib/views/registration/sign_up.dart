@@ -16,36 +16,8 @@ class SignUpPage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Padding(
-            padding: EdgeInsets.fromLTRB(16, 8, 0, 0),
-            child: Stack(
-              children: [
-                Align(
-                  alignment: AlignmentDirectional.topStart,
-                  child: SizedBox(
-                    width: 120,
-                    height: 180,
-                    child: Image(
-                      image: AssetImage(txt.logoPath),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 80,
-                  top: 120,
-                  child: Text(
-                    txt.appName,
-                    style: TextStyle(
-                      color: AppColor.mainColor,
-                      fontSize: 38,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
           const Text(
             txt.signUpText,
             style: TextStyle(
@@ -54,12 +26,13 @@ class SignUpPage extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
+          bigSpace(),
           const CircleAvatar(
             backgroundImage: AssetImage(txt.defaultprofilePicture),
             radius: 56,
           ),
           meduimSpace(),
-          SignUpForm(),
+          SignUpForm(_signUpController),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

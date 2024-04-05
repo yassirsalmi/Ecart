@@ -7,7 +7,7 @@ const String signUpText = 'Sign Up To Continue';
 const String emailText = 'Enter your email';
 const String passwordText = 'Enter your password';
 const String nameText = 'Enter Your Name';
-const String createAccountText = 'Don\'t have an account?';
-const String haveAnAccount = 'have an account?';
+const String createAccountText = 'Don\'t have an account? ';
+const String haveAnAccount = 'have an account? ';
 // landing constant
 const String landingText = 'Your Style Is What We Care Most About';

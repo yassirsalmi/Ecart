@@ -41,12 +41,13 @@ Widget authButton(
 Widget signUpButton(
   String button,
   SignUpController signUpController,
+  TextEditingController name,
   TextEditingController email,
   TextEditingController password,
 ) {
   return GestureDetector(
     onTap: () {
-      signUpController.signUp(email.text, password.text);
+      signUpController.signUp(name.text, email.text, password.text);
     },
     child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 26),
