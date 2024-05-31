@@ -7,8 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../constants/texts.dart' as txt;
 
+// The SignUpPage class represents the sign-up screen of the application.
+// It includes the application logo, title, a sign-up form, a profile picture,
+// and options for social login and account switching.
 class SignUpPage extends StatelessWidget {
   SignUpPage({super.key});
+
+  // Initialize the SignUpController using GetX dependency injection.
   final SignUpController _signUpController = Get.put(SignUpController());
 
   @override
@@ -17,6 +22,7 @@ class SignUpPage extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: Column(
         children: [
+          // Padding to create spacing and contain the logo and title
           const Padding(
             padding: EdgeInsets.fromLTRB(16, 8, 0, 0),
             child: Stack(
@@ -46,6 +52,7 @@ class SignUpPage extends StatelessWidget {
               ],
             ),
           ),
+          // Sign-up text header
           const Text(
             txt.signUpText,
             style: TextStyle(
@@ -54,11 +61,13 @@ class SignUpPage extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
+          // Profile picture placeholder
           const CircleAvatar(
             backgroundImage: AssetImage(txt.defaultprofilePicture),
             radius: 56,
           ),
           meduimSpace(),
+          // Sign-up form
           SignUpForm(),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -78,6 +87,7 @@ class SignUpPage extends StatelessWidget {
             ],
           ),
           bigSpace(),
+          // Social login options
           socialLogin(_signUpController),
         ],
       ),

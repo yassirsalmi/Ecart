@@ -6,8 +6,13 @@ import 'package:get/get.dart';
 import 'components/social_login.dart';
 import '../../constants/texts.dart' as txt;
 
+// The LoginPage class represents the login screen of the application.
+// It includes the application logo, title, a login form, and options for
+// social login and account creation.
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
+
+  // Initialize the LoginController using GetX dependency injection.
   final LoginController _signInController = Get.put(LoginController());
 
   @override
@@ -18,6 +23,7 @@ class LoginPage extends StatelessWidget {
         children: [
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 30),
+            // the Stack is used to put the application logo and title
             child: Stack(
               children: [
                 Align(
@@ -45,6 +51,7 @@ class LoginPage extends StatelessWidget {
               ],
             ),
           ),
+          // Sign-in text header.
           const Text(
             txt.signInText,
             style: TextStyle(
@@ -53,11 +60,11 @@ class LoginPage extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(
-            height: 30,
-          ),
+          bigSpace(),
+          // Login form
           LoginForm(),
           meduimSpace(),
+          // Row for account creation link.
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -78,6 +85,7 @@ class LoginPage extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
+          // Social login options.
           socialLogin(_signInController),
         ],
       ),

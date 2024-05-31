@@ -16,6 +16,26 @@ class SignUpController extends GetxController {
   void updateIconButtonVisibility(bool hasContent) {
     showIconButton.value = hasContent;
   }
+// regex for email  format verefication
+
+//   bool isValidEmail(String email) {
+//   // Regular expression for basic email format validation
+//   final emailRegex = RegExp(r'^[^\s@]+@[^\s@]+\.[^\s@]+$');
+//   return emailRegex.hasMatch(email);
+// }
+
+// // Example usage:
+// String email = 'example@example.com';
+// if (isValidEmail(email)) {
+//   // Email format is valid, proceed with registration
+//   finalCredential = await auth.createUserWithEmailAndPassword(
+//     email: email.trim(),
+//     password: password.trim(),
+//   );
+// } else {
+//   // Email format is invalid, display an error message to the user
+//   print('Invalid email format. Please enter a valid email address.');
+// }
 
   Future signUp(String email, String password) async {
     try {
@@ -37,7 +57,7 @@ class SignUpController extends GetxController {
       } else if (e.code == 'email-already-in-use') {
         Get.showSnackbar(
           const GetSnackBar(
-            message: 'The account already exists for that email.',
+            message: 'An account already exists for that email.',
             icon: Icon(Icons.refresh),
             duration: Duration(seconds: 3),
           ),
