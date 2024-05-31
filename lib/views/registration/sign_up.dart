@@ -7,8 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../constants/texts.dart' as txt;
 
+// The SignUpPage class represents the sign-up screen of the application.
+// It includes the application logo, title, a sign-up form, a profile picture,
+// and options for social login and account switching.
 class SignUpPage extends StatelessWidget {
   SignUpPage({super.key});
+
+  // Initialize the SignUpController using GetX dependency injection.
   final SignUpController _signUpController = Get.put(SignUpController());
 
   @override
@@ -18,6 +23,35 @@ class SignUpPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const Padding(
+            padding: EdgeInsets.fromLTRB(16, 8, 0, 0),
+            child: Stack(
+              children: [
+                Align(
+                  alignment: AlignmentDirectional.topStart,
+                  child: SizedBox(
+                    width: 120,
+                    height: 180,
+                    child: Image(
+                      image: AssetImage(txt.logoPath),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 80,
+                  top: 120,
+                  child: Text(
+                    txt.appName,
+                    style: TextStyle(
+                      color: AppColor.mainColor,
+                      fontSize: 38,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
           const Text(
             txt.signUpText,
             style: TextStyle(
@@ -26,7 +60,6 @@ class SignUpPage extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          bigSpace(),
           const CircleAvatar(
             backgroundImage: AssetImage(txt.defaultprofilePicture),
             radius: 56,
@@ -51,6 +84,7 @@ class SignUpPage extends StatelessWidget {
             ],
           ),
           bigSpace(),
+          // Social login options
           socialLogin(_signUpController),
         ],
       ),
