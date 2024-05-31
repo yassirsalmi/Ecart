@@ -23,35 +23,7 @@ class SignUpPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Padding(
-            padding: EdgeInsets.fromLTRB(16, 8, 0, 0),
-            child: Stack(
-              children: [
-                Align(
-                  alignment: AlignmentDirectional.topStart,
-                  child: SizedBox(
-                    width: 120,
-                    height: 180,
-                    child: Image(
-                      image: AssetImage(txt.logoPath),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 80,
-                  top: 120,
-                  child: Text(
-                    txt.appName,
-                    style: TextStyle(
-                      color: AppColor.mainColor,
-                      fontSize: 38,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
+          // sign up header text
           const Text(
             txt.signUpText,
             style: TextStyle(
@@ -60,11 +32,29 @@ class SignUpPage extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const CircleAvatar(
-            backgroundImage: AssetImage(txt.defaultprofilePicture),
-            radius: 56,
+          bigSpace(),
+          // profile picture avatar
+          Stack(
+            children: <Widget>[
+              const CircleAvatar(
+                backgroundImage: AssetImage(txt.defaultprofilePicture),
+                radius: 72,
+              ),
+              Positioned(
+                bottom: -6,
+                left: 95,
+                child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.add_a_photo,
+                    color: AppColor.mainColor,
+                    size: 28,
+                  ),
+                ),
+              ),
+            ],
           ),
-          meduimSpace(),
+          bigSpace(),
           SignUpForm(_signUpController),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
