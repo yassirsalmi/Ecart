@@ -2,5 +2,5 @@
 
 class AppImages {
   AppImages._();
-  static const appLogo = 'assets/ecart_logo.png';
+  static const appLogo = 'assets/logos/ecart_logo.png';
 }

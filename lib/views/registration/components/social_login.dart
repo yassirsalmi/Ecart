@@ -53,7 +53,7 @@ Widget socialLogin(dynamic controller) {
           children: [
             CircleAvatar(
               backgroundColor: Colors.white,
-              backgroundImage: AssetImage('assets/google_logo.png'),
+              backgroundImage: AssetImage('assets/logos/google_logo.png'),
             ),
             Text('Google'),
           ],
@@ -65,7 +65,7 @@ Widget socialLogin(dynamic controller) {
           children: [
             CircleAvatar(
               backgroundColor: Colors.white,
-              backgroundImage: AssetImage('assets/facebook_logo.png'),
+              backgroundImage: AssetImage('assets/logos/facebook_logo.png'),
             ),
             Text('Facebook'),
           ],

@@ -32,7 +32,7 @@ Widget discountComponent() {
           right: 0,
           top: 14,
           child: Image(
-            image: AssetImage('assets/discount.png'),
+            image: AssetImage('assets/logos/summer_logo.png'),
           ),
         ),
       ],
