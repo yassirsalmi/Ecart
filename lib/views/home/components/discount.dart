@@ -4,6 +4,7 @@ Widget discountComponent() {
   return Container(
     height: 150,
     decoration: BoxDecoration(
+      color: Colors.grey[200],
       borderRadius: const BorderRadius.all(Radius.circular(25)),
       border: Border.all(
         color: const Color(0xFF95CD2C),

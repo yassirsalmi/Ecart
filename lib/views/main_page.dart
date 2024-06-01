@@ -17,11 +17,11 @@ class MainPage extends StatelessWidget {
       body: Obx(
         () => IndexedStack(
           index: controller.selectedIndex,
-          children: const [
+          children: [
             HomePage(),
-            MyCardPage(),
-            MyCardPage(),
-            ProfilePage(),
+            const MyCardPage(),
+            const MyCardPage(),
+            const ProfilePage(),
           ],
         ),
       ),

@@ -1,11 +1,21 @@
 import 'package:ecart/constants/constant_widget.dart';
+import 'package:ecart/models/Item_type.dart';
 import 'package:ecart/views/home/components/discount.dart';
+import 'package:ecart/views/home/components/item_type_widget.dart';
 import 'package:ecart/views/home/components/product_details.dart';
 import 'package:flutter/material.dart';
 import '../../constants/texts.dart' as txt;
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  final List<ItemType> items = [
+    ItemType(imagePath: 'assets/icons/jeans.png', label: 'Jeans'),
+    ItemType(imagePath: 'assets/icons/t-shirt.png', label: 'T-shirt'),
+    ItemType(imagePath: 'assets/icons/thin.png', label: 'Thin'),
+    ItemType(imagePath: 'assets/icons/sneakers.png', label: 'Sneakers'),
+    ItemType(imagePath: 'assets/icons/wristwatch.png', label: 'Accessories'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +26,7 @@ class HomePage extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                //the top part of the screen goes here
+                // The header of the screen the menu, logo and the bag of shopping
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -51,23 +61,17 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 smallSpace(),
-                // the discount component the t will be modified or hiden
+                // the discount component it will be updated based on the season and offers
                 discountComponent(),
-                smallSpace(),
-                // scrollable row to filter products
-                Row(
-                  children: [
-                    GestureDetector(
-                      child: const Row(
-                          children: [Icon(Icons.watch), Text('Accessories')]),
-                    ),
-                    GestureDetector(
-                      child: const Row(
-                          children: [Icon(Icons.watch), Text('Accessories')]),
-                    ),
-                  ],
+                meduimSpace(),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children:
+                        items.map((item) => ItemWidget(item: item)).toList(),
+                  ),
                 ),
-                smallSpace(),
+                meduimSpace(),
                 // this is the component to display product at the home page
                 smallSpace(),
                 productDetail(),
