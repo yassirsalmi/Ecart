@@ -1,6 +1,6 @@
 const String appName = 'Ecart';
 // auth constant
-const String logoPath = 'assets/ecart_logo.png';
+const String logoPath = 'assets/logos/ecart_logo.png';
 const String defaultprofilePicture = 'assets/profile_defaut.png';
 const String signInText = 'Sign In To Continue';
 const String signUpText = 'Sign Up To Continue';
