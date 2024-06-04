@@ -95,15 +95,54 @@ class HomePage extends StatelessWidget {
                 // to display the products list in the home page
                 meduimSpace(),
                 smallSpace(),
-                productDetail(),
+                productDetail(
+                  title: 'Modern Men\'s Watch',
+                  imageUrl: 'assets/watch_1_men-1.png',
+                  description:
+                      'A gentleman\'s choice of timepiece says as much...',
+                  onAddFavorite: () {},
+                  onSeeDetails: () {},
+                ),
                 smallSpace(),
-                productDetail(),
+                productDetail(
+                  title: 'Modern Men\'s Watch',
+                  imageUrl: 'assets/watch_1_men-1.png',
+                  description:
+                      'A gentleman\'s choice of timepiece says as much...',
+                  onAddFavorite: () {},
+                  onSeeDetails: () {},
+                ),
                 smallSpace(),
-                productDetail(),
+                productDetail(
+                  title: 'Modern Men\'s Watch',
+                  imageUrl: 'assets/watch_1_men-1.png',
+                  description:
+                      'A gentleman\'s choice of timepiece says as much...',
+                  onAddFavorite: () {},
+                  onSeeDetails: () {},
+                ),
                 smallSpace(),
-                productDetail(),
+                productDetail(
+                  title: 'Modern Men\'s Watch',
+                  imageUrl: 'assets/watch_1_men-1.png',
+                  description:
+                      'A gentleman\'s choice of timepiece says as much...',
+                  onAddFavorite: () {},
+                  onSeeDetails: () {},
+                ),
                 smallSpace(),
-                productDetail(),
+                productDetail(
+                  title: 'Modern Men\'s Watch',
+                  imageUrl: 'assets/watch_1_men-1.png',
+                  description:
+                      'A gentleman\'s choice of timepiece says as much...',
+                  onAddFavorite: () {
+                    // to add the product to favorite product
+                  },
+                  onSeeDetails: () {
+                    // to see details
+                  },
+                ),
               ],
             ),
           ),
