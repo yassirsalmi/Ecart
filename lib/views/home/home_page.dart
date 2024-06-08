@@ -48,37 +48,25 @@ class HomePage extends StatelessWidget {
               children: [
                 // The header of the screen the menu, logo and the bag of shopping
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.menu,
-                        color: Color(0xFF95CD2C),
-                        size: 36,
-                      ),
+                    SizedBox(
+                      height: 42,
+                      child: Image.asset('assets/logos/ecart_logo.png'),
                     ),
                     const Text(
                       txt.appName,
                       style: TextStyle(color: Color(0xFF95CD2C), fontSize: 32),
                     ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        //the icon need to change
-                        Icons.shopping_bag_outlined,
-                        color: Color(0xFF95CD2C),
-                        size: 36,
-                      ),
-                    ),
                   ],
                 ),
-                const Text(
-                  txt.landingText,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                    // color: Color(0xFF95CD2C),
+                const Center(
+                  child: Text(
+                    txt.landingText,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
                   ),
                 ),
                 smallSpace(),

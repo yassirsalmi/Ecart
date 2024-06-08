@@ -35,6 +35,13 @@ class ProfilePage extends StatelessWidget {
                       Text('Display Name: ${user!.displayName ?? "N/A"}'),
                       Text('Email: ${user.email ?? "N/A"}'),
                       bigSpace(),
+                      const Text(
+                        'Manage My Orders',
+                        style: TextStyle(
+                          fontSize: 24,
+                        ),
+                      ),
+                      meduimSpace(),
                       // My orders and favorite items ... component must be aded here
                       const Orders(),
                       bigSpace(),
